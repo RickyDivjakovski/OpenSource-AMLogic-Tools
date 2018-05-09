@@ -1,0 +1,10 @@
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\bin\Release\BurnCardMaker.exe.config
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\bin\Release\BurnCardMaker.exe
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\bin\Release\BurnCardMaker.pdb
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\obj\Release\BurnCardMaker.Form1.resources
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\obj\Release\BurnCardMaker.Properties.Resources.resources
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\obj\Release\BurnCardMaker.csproj.GenerateResource.cache
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\obj\Release\BurnCardMaker.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\obj\Release\BurnCardMaker.exe
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\obj\Release\BurnCardMaker.pdb
+C:\Users\Ricky Divjakovski\source\repos\BurnCardMaker\BurnCardMaker\obj\Release\BurnCardMaker.csprojResolveAssemblyReference.cache

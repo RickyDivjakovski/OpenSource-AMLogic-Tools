@@ -1,0 +1,9 @@
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\bin\Release\CustomizationTool.exe.config
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\bin\Release\CustomizationTool.exe
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\bin\Release\CustomizationTool.pdb
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Release\CustomizationTool.Form1.resources
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Release\CustomizationTool.Properties.Resources.resources
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Release\CustomizationTool.csproj.GenerateResource.cache
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Release\CustomizationTool.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Release\CustomizationTool.exe
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Release\CustomizationTool.pdb

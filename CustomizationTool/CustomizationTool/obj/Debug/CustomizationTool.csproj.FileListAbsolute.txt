@@ -1,0 +1,10 @@
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\bin\Debug\CustomizationTool.exe.config
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\bin\Debug\CustomizationTool.exe
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\bin\Debug\CustomizationTool.pdb
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Debug\CustomizationTool.csprojResolveAssemblyReference.cache
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Debug\CustomizationTool.Form1.resources
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Debug\CustomizationTool.Properties.Resources.resources
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Debug\CustomizationTool.csproj.GenerateResource.cache
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Debug\CustomizationTool.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Debug\CustomizationTool.exe
+C:\Users\Ricky Divjakovski\source\repos\CustomizationTool\CustomizationTool\obj\Debug\CustomizationTool.pdb
