@@ -624,9 +624,9 @@ namespace CustomizationTool
                 StatusLabel.Text = "Packing installation files..";
                 BackgroundShell(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\7za.exe", " u -mx" +  CompressionLevel.Value + " -tzip -y \"" + saver.FileName + "\" \"" + AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\META-INF" + "\"");
                 StatusLabel.Text = "Packing kernel..";
-                if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\boot.img") && WriteKernel.Checked) BackgroundShell(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\7za.exe", " u -mx" +  CompressionLevel.Value + " -tzip -y \"" + saver.FileName + "\" \"" + AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\boot.img" + "\"");
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\boot.img") && WriteKernel.Checked) BackgroundShell(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\7za.exe", " u -mx" +  CompressionLevel.Value + " -tzip -y \"" + saver.FileName + "\" \"" + AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\boot.img" + "\"");
                 StatusLabel.Text = "Packing recovery..";
-                if (!File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\recovery.img") && WriteRecovery.Checked) BackgroundShell(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\7za.exe", " u -mx" +  CompressionLevel.Value + " -tzip -y \"" + saver.FileName + "\" \"" + AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\recovery.img" + "\"");
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\recovery.img") && WriteRecovery.Checked) BackgroundShell(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\7za.exe", " u -mx" +  CompressionLevel.Value + " -tzip -y \"" + saver.FileName + "\" \"" + AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\recovery.img" + "\"");
                 StatusLabel.Text = "Packing system..";
                 if (WriteSystem.Checked) BackgroundShell(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\7za.exe", " u -mx" +  CompressionLevel.Value + " -tzip -y \"" + saver.FileName + "\" \"" + AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system" + "\"");
 
