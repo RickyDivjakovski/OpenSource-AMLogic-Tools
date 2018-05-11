@@ -4,11 +4,10 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
-namespace CustomizationTool
+namespace AMLUnpacker
 {
-    public partial class AMLImageUnpacker
+    class Unpacker
     {
         // Splitting function
         private void HexSplit(string inputFile, string outputFile, string startAddress, string endAddress)

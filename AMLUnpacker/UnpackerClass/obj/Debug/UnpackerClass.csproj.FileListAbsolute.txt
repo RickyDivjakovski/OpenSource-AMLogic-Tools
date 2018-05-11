@@ -1,0 +1,6 @@
+C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\UnpackerClass\bin\Debug\UnpackerClass.dll
+C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\UnpackerClass\bin\Debug\UnpackerClass.pdb
+C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\UnpackerClass\obj\Debug\UnpackerClass.csprojResolveAssemblyReference.cache
+C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\UnpackerClass\obj\Debug\UnpackerClass.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\UnpackerClass\obj\Debug\UnpackerClass.dll
+C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\UnpackerClass\obj\Debug\UnpackerClass.pdb

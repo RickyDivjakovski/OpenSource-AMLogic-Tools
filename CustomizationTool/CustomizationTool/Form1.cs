@@ -73,6 +73,21 @@ namespace CustomizationTool
                 level1Thread.Start();
                 while (level1Thread.IsAlive) Application.DoEvents();
 
+                StatusLabel.Text = "Verifying split data..";
+                foreach (string file in Directory.GetFiles(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level1"))
+                {
+                    if (file.EndsWith(".VERIFY"))
+                    {
+                        StatusLabel.Text = "Verifying " + Path.GetFileNameWithoutExtension(file) + " partition..";
+                        Thread VerifyThread = new Thread(delegate ()
+                        {
+                            if (unpacker.Verify(file, Path.GetDirectoryName(file) + "\\" + Path.GetFileNameWithoutExtension(file) + ".PARTITION") != true) MessageBox.Show("SHA1 sum mismatch for " + Path.GetFileNameWithoutExtension(file) + ".\nFile may be corrupt.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        });
+                        VerifyThread.Start();
+                        while (VerifyThread.IsAlive) Application.DoEvents();
+                    }
+                }
+
                 // Level 2
                 StatusLabel.Text = "Unpacking level2(Unpacking system)..";
                 Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2");
