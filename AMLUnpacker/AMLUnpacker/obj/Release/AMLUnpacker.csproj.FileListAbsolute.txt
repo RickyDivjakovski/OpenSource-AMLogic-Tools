@@ -1,0 +1,12 @@
+C:\Users\Ricky Divjakovski\Documents\GitHub\OpenSource-AMLogic-Tools\AMLUnpacker\AMLUnpacker\bin\Release\AMLUnpacker.dll
+C:\Users\Ricky Divjakovski\Documents\GitHub\OpenSource-AMLogic-Tools\AMLUnpacker\AMLUnpacker\bin\Release\AMLUnpacker.pdb
+C:\Users\Ricky Divjakovski\Documents\GitHub\OpenSource-AMLogic-Tools\AMLUnpacker\AMLUnpacker\obj\Release\AMLUnpacker.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\Documents\GitHub\OpenSource-AMLogic-Tools\AMLUnpacker\AMLUnpacker\obj\Release\AMLUnpacker.dll
+C:\Users\Ricky Divjakovski\Documents\GitHub\OpenSource-AMLogic-Tools\AMLUnpacker\AMLUnpacker\obj\Release\AMLUnpacker.pdb
+C:\Users\Ricky Divjakovski\Documents\GitHub\OpenSource-AMLogic-Tools\AMLUnpacker\AMLUnpacker\obj\Release\AMLUnpacker.csprojResolveAssemblyReference.cache
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUnpacker\AMLUnpacker\bin\Release\AMLUnpacker.dll
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUnpacker\AMLUnpacker\bin\Release\AMLUnpacker.pdb
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUnpacker\AMLUnpacker\obj\Release\AMLUnpacker.csprojResolveAssemblyReference.cache
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUnpacker\AMLUnpacker\obj\Release\AMLUnpacker.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUnpacker\AMLUnpacker\obj\Release\AMLUnpacker.dll
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUnpacker\AMLUnpacker\obj\Release\AMLUnpacker.pdb

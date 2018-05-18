@@ -1,6 +1,6 @@
-C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\AMLUnpacker\bin\Debug\AMLUnpacker.exe
+C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\AMLUnpacker\bin\Debug\AMLUnpacker.dll
 C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\AMLUnpacker\bin\Debug\AMLUnpacker.pdb
 C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\AMLUnpacker\obj\Debug\AMLUnpacker.csprojResolveAssemblyReference.cache
 C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\AMLUnpacker\obj\Debug\AMLUnpacker.csproj.CoreCompileInputs.cache
-C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\AMLUnpacker\obj\Debug\AMLUnpacker.exe
+C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\AMLUnpacker\obj\Debug\AMLUnpacker.dll
 C:\Users\Ricky Divjakovski\source\repos\AMLUnpacker\AMLUnpacker\obj\Debug\AMLUnpacker.pdb

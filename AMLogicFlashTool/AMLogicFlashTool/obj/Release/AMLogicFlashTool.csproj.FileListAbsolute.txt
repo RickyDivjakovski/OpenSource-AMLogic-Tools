@@ -1,0 +1,15 @@
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\bin\Release\AMLogicFlashTool.exe.config
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\bin\Release\AMLogicFlashTool.exe
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\bin\Release\AMLogicFlashTool.pdb
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\bin\Release\AMLUnpacker.dll
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\bin\Release\CoolADB.dll
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\bin\Release\CoolADB.pdb
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.Connect.resources
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.Form1.resources
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.Properties.Resources.resources
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.csproj.GenerateResource.cache
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.csproj.CopyComplete
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.exe
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.pdb
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLogicFlashTool\AMLogicFlashTool\obj\Release\AMLogicFlashTool.csprojResolveAssemblyReference.cache

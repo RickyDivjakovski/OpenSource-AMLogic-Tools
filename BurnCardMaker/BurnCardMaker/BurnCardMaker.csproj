@@ -34,7 +34,7 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>AutomaterIcon.ico</ApplicationIcon>
+    <ApplicationIcon>BurnCardMaker.ico</ApplicationIcon>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -88,6 +88,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AutomaterIcon.ico" />
+    <Content Include="BurnCardMaker.ico" />
+    <Content Include="stopwatch_icon_IKK_icon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

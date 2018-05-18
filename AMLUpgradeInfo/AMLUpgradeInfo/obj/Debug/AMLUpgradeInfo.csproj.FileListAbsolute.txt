@@ -1,0 +1,12 @@
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\bin\Debug\AMLUpgradeInfo.exe.config
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\bin\Debug\AMLUpgradeInfo.exe
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\bin\Debug\AMLUpgradeInfo.pdb
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\bin\Debug\AMLUnpacker.dll
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\obj\Debug\AMLUpgradeInfo.csprojResolveAssemblyReference.cache
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\obj\Debug\AMLUpgradeInfo.Form1.resources
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\obj\Debug\AMLUpgradeInfo.Properties.Resources.resources
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\obj\Debug\AMLUpgradeInfo.csproj.GenerateResource.cache
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\obj\Debug\AMLUpgradeInfo.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\obj\Debug\AMLUpgradeInfo.csproj.CopyComplete
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\obj\Debug\AMLUpgradeInfo.exe
+C:\Users\Ricky Divjakovski\source\repos\AMLUpgradeInfo\AMLUpgradeInfo\obj\Debug\AMLUpgradeInfo.pdb

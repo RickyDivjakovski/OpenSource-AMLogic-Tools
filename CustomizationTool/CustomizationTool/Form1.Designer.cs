@@ -105,6 +105,12 @@
             this.OpenBuildProp = new System.Windows.Forms.Button();
             this.AddInitdHook = new System.Windows.Forms.Button();
             this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.CTPCompressionStatus = new System.Windows.Forms.Label();
+            this.CTPCompression = new System.Windows.Forms.TrackBar();
+            this.label21 = new System.Windows.Forms.Label();
+            this.ExportCTP = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label14 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
@@ -121,7 +127,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
             this.UnpackingLoader = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.UpgradePackage = new System.Windows.Forms.TextBox();
             this.UnpackImage = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.AboutButton = new System.Windows.Forms.ToolStripMenuItem();
@@ -156,6 +162,8 @@
             this.groupBox4.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.tabPage6.SuspendLayout();
+            this.groupBox8.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CTPCompression)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.groupBox6.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.CompressionLevel)).BeginInit();
@@ -965,6 +973,7 @@
             // 
             // tabPage6
             // 
+            this.tabPage6.Controls.Add(this.groupBox8);
             this.tabPage6.Controls.Add(this.groupBox7);
             this.tabPage6.Controls.Add(this.groupBox6);
             this.tabPage6.Location = new System.Drawing.Point(4, 22);
@@ -974,6 +983,72 @@
             this.tabPage6.TabIndex = 5;
             this.tabPage6.Text = "Packaging";
             this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.CTPCompressionStatus);
+            this.groupBox8.Controls.Add(this.CTPCompression);
+            this.groupBox8.Controls.Add(this.label21);
+            this.groupBox8.Controls.Add(this.ExportCTP);
+            this.groupBox8.Controls.Add(this.label19);
+            this.groupBox8.Location = new System.Drawing.Point(303, 7);
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.Size = new System.Drawing.Size(253, 119);
+            this.groupBox8.TabIndex = 2;
+            this.groupBox8.TabStop = false;
+            this.groupBox8.Text = "Customization Tool project file";
+            // 
+            // CTPCompressionStatus
+            // 
+            this.CTPCompressionStatus.AutoSize = true;
+            this.CTPCompressionStatus.Location = new System.Drawing.Point(6, 62);
+            this.CTPCompressionStatus.Name = "CTPCompressionStatus";
+            this.CTPCompressionStatus.Size = new System.Drawing.Size(208, 13);
+            this.CTPCompressionStatus.TabIndex = 18;
+            this.CTPCompressionStatus.Text = "Optimal compression, longer but smaller file";
+            // 
+            // CTPCompression
+            // 
+            this.CTPCompression.AutoSize = false;
+            this.CTPCompression.BackColor = System.Drawing.Color.White;
+            this.CTPCompression.LargeChange = 1;
+            this.CTPCompression.Location = new System.Drawing.Point(104, 43);
+            this.CTPCompression.Maximum = 3;
+            this.CTPCompression.Minimum = 1;
+            this.CTPCompression.Name = "CTPCompression";
+            this.CTPCompression.Size = new System.Drawing.Size(141, 20);
+            this.CTPCompression.TabIndex = 17;
+            this.CTPCompression.TickStyle = System.Windows.Forms.TickStyle.None;
+            this.CTPCompression.Value = 3;
+            this.CTPCompression.Scroll += new System.EventHandler(this.CTPCompression_Scroll);
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Location = new System.Drawing.Point(6, 44);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(92, 13);
+            this.label21.TabIndex = 16;
+            this.label21.Text = "Compression level";
+            // 
+            // ExportCTP
+            // 
+            this.ExportCTP.Location = new System.Drawing.Point(6, 91);
+            this.ExportCTP.Name = "ExportCTP";
+            this.ExportCTP.Size = new System.Drawing.Size(241, 22);
+            this.ExportCTP.TabIndex = 15;
+            this.ExportCTP.Text = "Export";
+            this.ExportCTP.UseVisualStyleBackColor = true;
+            this.ExportCTP.Click += new System.EventHandler(this.ExportCTP_Click);
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(7, 20);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(238, 13);
+            this.label19.TabIndex = 0;
+            this.label19.Text = "Produces a file that can be re-opened by this tool";
             // 
             // groupBox7
             // 
@@ -1133,7 +1208,7 @@
             // panel1
             // 
             this.panel1.Controls.Add(this.UnpackingLoader);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.UpgradePackage);
             this.panel1.Controls.Add(this.UnpackImage);
             this.panel1.Controls.Add(this.menuStrip1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1154,14 +1229,14 @@
             this.UnpackingLoader.TabStop = false;
             this.UnpackingLoader.Visible = false;
             // 
-            // textBox1
+            // UpgradePackage
             // 
-            this.textBox1.Enabled = false;
-            this.textBox1.Location = new System.Drawing.Point(84, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(405, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "Select Amlogic upgrade package..";
+            this.UpgradePackage.Enabled = false;
+            this.UpgradePackage.Location = new System.Drawing.Point(84, 31);
+            this.UpgradePackage.Name = "UpgradePackage";
+            this.UpgradePackage.Size = new System.Drawing.Size(405, 20);
+            this.UpgradePackage.TabIndex = 5;
+            this.UpgradePackage.Text = "Select Amlogic upgrade package or customization tool project file..";
             // 
             // UnpackImage
             // 
@@ -1240,7 +1315,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "Form1";
-            this.Text = "Customization Tool v3.0.4";
+            this.Text = "Customization Tool";
+            this.Shown += new System.EventHandler(this.Form1_Shown);
             this.MainTab.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
@@ -1271,6 +1347,9 @@
             this.groupBox4.ResumeLayout(false);
             this.groupBox3.ResumeLayout(false);
             this.tabPage6.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.CTPCompression)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.groupBox6.ResumeLayout(false);
@@ -1314,7 +1393,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox UpgradePackage;
         private System.Windows.Forms.Button UnpackImage;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem AboutButton;
@@ -1386,6 +1465,12 @@
         private System.Windows.Forms.Label CompressionStatus;
         private System.Windows.Forms.TrackBar CompressionLevel;
         private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Label CTPCompressionStatus;
+        private System.Windows.Forms.TrackBar CTPCompression;
+        private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.Button ExportCTP;
+        private System.Windows.Forms.Label label19;
     }
 }
 

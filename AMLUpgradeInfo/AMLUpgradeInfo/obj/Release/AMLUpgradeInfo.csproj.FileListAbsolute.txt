@@ -1,0 +1,12 @@
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\obj\Release\AMLUpgradeInfo.csprojResolveAssemblyReference.cache
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\obj\Release\AMLUpgradeInfo.Form1.resources
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\obj\Release\AMLUpgradeInfo.Properties.Resources.resources
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\obj\Release\AMLUpgradeInfo.csproj.GenerateResource.cache
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\obj\Release\AMLUpgradeInfo.csproj.CoreCompileInputs.cache
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\bin\Release\AMLUpgradeInfo.exe.config
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\bin\Release\AMLUpgradeInfo.exe
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\bin\Release\AMLUpgradeInfo.pdb
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\bin\Release\AMLUnpacker.dll
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\obj\Release\AMLUpgradeInfo.csproj.CopyComplete
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\obj\Release\AMLUpgradeInfo.exe
+C:\Users\Ricky Divjakovski\Desktop\AmlogicTools\Source\AMLUpgradeInfo\AMLUpgradeInfo\obj\Release\AMLUpgradeInfo.pdb

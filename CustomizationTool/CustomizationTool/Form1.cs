@@ -11,6 +11,7 @@ using System.IO;
 using System.IO.Compression;
 using System.Diagnostics;
 using System.Threading;
+using AMLUnpacker;
 
 namespace CustomizationTool
 {
@@ -19,6 +20,11 @@ namespace CustomizationTool
         public Form1()
         {
             InitializeComponent();
+        }
+
+        private void Form1_Shown(object sender, EventArgs e)
+        {
+            if (Environment.GetCommandLineArgs().Length == 2 && File.Exists(Environment.GetCommandLineArgs()[1])) Unpack(Environment.GetCommandLineArgs()[1]);
             if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\build.prop")) { MainTab.Enabled = true; LoadInfo(); AppsDirectory.SelectedIndex = 0; }
             else MainTab.Enabled = false;
         }
@@ -47,28 +53,37 @@ namespace CustomizationTool
         }
 
         // ================================================>> UNPACKING
-        AMLImageUnpacker unpacker = new AMLImageUnpacker();
-        KernelUtility kernelUnpacker = new KernelUtility();
+        Unpacker unpacker = new Unpacker();
+        KernelUnpacker kernelUnpacker = new KernelUnpacker();
         RomPacker packer = new RomPacker();
 
         private void UnpackImage_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "amlogic package (*.img) | *.img";
+            ofd.Filter = "Upgrade Packages/Project files (*.img; *.ctp) | *.img; *.ctp";
             DialogResult res = ofd.ShowDialog();
             if (res == DialogResult.OK)
             {
-                UnpackingLoader.Visible = true;
-                MainTab.Enabled = false;
-                if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp")) Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\tmp", true);
-                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp");
+                Unpack(ofd.FileName);
+            }
+        }
 
+        private void Unpack(string Input)
+        {
+            UnpackingLoader.Visible = true;
+            MainTab.Enabled = false;
+            UpgradePackage.Text = Input;
+            if (Directory.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp")) Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\tmp", true);
+            Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp");
+
+            if (Path.GetExtension(Input).EndsWith("img"))
+            {
                 // Level 1
                 StatusLabel.Text = "Unpacking level1(Splitting package)..";
                 Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level1");
                 Thread level1Thread = new Thread(delegate ()
                 {
-                    unpacker.UnpackUpgradePackage(ofd.FileName, AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level1");
+                    unpacker.UnpackUpgradePackage(Input, AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level1");
                 });
                 level1Thread.Start();
                 while (level1Thread.IsAlive) Application.DoEvents();
@@ -135,25 +150,36 @@ namespace CustomizationTool
 
                 StatusLabel.Text = "Unpacking level3(Unpacking wallpaper)..";
                 Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper");
-                string wallpaperPath = "";
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher.apk"))
-                    wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher.apk";
-                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk"))
-                    wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk";
-                if (wallpaperPath != null && !string.IsNullOrWhiteSpace(wallpaperPath))
+                
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk"))
                 {
+                    string wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk";
                     ZipArchive wallpaper = ZipFile.OpenRead(wallpaperPath);
                     foreach (ZipArchiveEntry entry in wallpaper.Entries) if (entry.FullName.Equals(@"res/drawable/bg.png")) entry.ExtractToFile(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
                 }
-
-                MainTab.Enabled = true;
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\build.prop")) { MainTab.Enabled = true; LoadInfo(); AppsDirectory.SelectedIndex = 0; MessageBox.Show("Successfully unpacked.", "Unpack complete"); }
-                else MainTab.Enabled = false;
-                StatusLabel.Text = "Done.";
-                UnpackingLoader.Visible = false;
+                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\AmlLauncher_canzone_7.1.apk"))
+                {
+                    string wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\AmlLauncher_canzone_7.1.apk";
+                    ZipArchive wallpaper = ZipFile.OpenRead(wallpaperPath);
+                    foreach (ZipArchiveEntry entry in wallpaper.Entries) if (entry.FullName.Equals(@"res/drawable-mdpi/bg.png")) entry.ExtractToFile(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
+                }
             }
+            else if (Path.GetExtension(Input).EndsWith("ctp"))
+            {
+                StatusLabel.Text = "Unpacking Customization Tool Project..";
+                Thread ProjectThread = new Thread(delegate ()
+                {
+                    ZipArchive ctp = ZipFile.OpenRead(Input);
+                    ctp.ExtractToDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp");
+                });
+                ProjectThread.Start();
+                while (ProjectThread.IsAlive) Application.DoEvents();
+            }
+            if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\build.prop")) { MainTab.Enabled = true; LoadInfo(); AppsDirectory.SelectedIndex = 0; MessageBox.Show("Successfully unpacked.", "Unpack complete"); }
+            else MainTab.Enabled = false;
+            StatusLabel.Text = "Done.";
+            UnpackingLoader.Visible = false;
         }
-
 
         // ================================================>> PRODUCT INFO
         private void LoadInfo()
@@ -288,16 +314,17 @@ namespace CustomizationTool
                 UnpackingLoader.Visible = true;
                 Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper");
 
-                string wallpaperPath = "";
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher.apk"))
-                    wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher.apk";
-                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk"))
-                    wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk";
-
-                if (wallpaperPath != null && !string.IsNullOrWhiteSpace(wallpaperPath))
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk"))
                 {
+                    string wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk";
                     ZipArchive wallpaper = ZipFile.OpenRead(wallpaperPath);
                     foreach (ZipArchiveEntry entry in wallpaper.Entries) if (entry.FullName.Equals(@"res/drawable/bg.png")) entry.ExtractToFile(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
+                }
+                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\AmlLauncher_canzone_7.1.apk"))
+                {
+                    string wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\AmlLauncher_canzone_7.1.apk";
+                    ZipArchive wallpaper = ZipFile.OpenRead(wallpaperPath);
+                    foreach (ZipArchiveEntry entry in wallpaper.Entries) if (entry.FullName.Equals(@"res/drawable-mdpi/bg.png")) entry.ExtractToFile(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
                 }
                 UnpackingLoader.Visible = false;
             }
@@ -314,22 +341,37 @@ namespace CustomizationTool
             if (res == DialogResult.OK)
             {
                 UnpackingLoader.Visible = true;
-                Image Wallpaper = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
-                Image NewWallpaper = new Bitmap(Wallpaper.Width, Wallpaper.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
-                Graphics g = Graphics.FromImage(NewWallpaper);
-                g.DrawImage(Image.FromFile(ofd.FileName), new Rectangle(0, 0, Wallpaper.Width, Wallpaper.Height));
-                Wallpaper.Dispose();
-                if (WallpaperPicturebox.Image != null) WallpaperPicturebox.Image.Dispose();
-                File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
-                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res");
-                Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res\\drawable");
-                NewWallpaper.Save(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res\\drawable\\bg.png");
-                NewWallpaper.Dispose();
                 string wallpaperPath = "";
-                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher.apk"))
-                    wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher.apk";
-                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk"))
+                if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk"))
+                {
+                    Image Wallpaper = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
+                    Image NewWallpaper = new Bitmap(Wallpaper.Width, Wallpaper.Height, System.Drawing.Imaging.PixelFormat.Format24bppRgb);
+                    Graphics g = Graphics.FromImage(NewWallpaper);
+                    g.DrawImage(Image.FromFile(ofd.FileName), new Rectangle(0, 0, Wallpaper.Width, Wallpaper.Height));
+                    Wallpaper.Dispose();
+                    if (WallpaperPicturebox.Image != null) WallpaperPicturebox.Image.Dispose();
+                    File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
+                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res");
+                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res\\drawable");
+                    NewWallpaper.Save(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res\\drawable\\bg.png");
+                    NewWallpaper.Dispose();
                     wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\SunvellWin8Launcher\\SunvellWin8Launcher.apk";
+                }
+                else if (File.Exists(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\AmlLauncher_canzone_7.1.apk"))
+                {
+                    Image Wallpaper = Image.FromFile(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
+                    Image NewWallpaper = new Bitmap(Wallpaper.Width, Wallpaper.Height);
+                    Graphics g = Graphics.FromImage(NewWallpaper);
+                    g.DrawImage(Image.FromFile(ofd.FileName), new Rectangle(0, 0, Wallpaper.Width, Wallpaper.Height));
+                    Wallpaper.Dispose();
+                    if (WallpaperPicturebox.Image != null) WallpaperPicturebox.Image.Dispose();
+                    File.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\bg.png");
+                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res");
+                    Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res\\drawable-mdpi");
+                    NewWallpaper.Save(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res\\drawable-mdpi\\bg.png");
+                    NewWallpaper.Dispose();
+                    wallpaperPath = AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\system\\app\\AmlLauncher_canzone_7.1.apk";
+                }
                 BackgroundShell(bin + "7za.exe", " u -mx9 -tzip -y \"" + wallpaperPath + "\" \"" + AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper\\res" + "\"");
                 Directory.Delete(AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level3\\wallpaper", true);
                 WallpaperButton.PerformClick();
@@ -586,6 +628,7 @@ namespace CustomizationTool
         }
 
         // ================================================>> PACKING
+        // ZIP
         private void CompressionLevel_Scroll(object sender, EventArgs e)
         {
             if (CompressionLevel.Value <= 3) CompressionStatus.Text = CompressionLevel.Value.ToString() + " - larger package size, faster processing time";
@@ -617,7 +660,7 @@ namespace CustomizationTool
 
                 StatusLabel.Text = "Building installation files..";
                 packer.PackToZip(WriteSystem.Checked,WriteKernel.Checked, WriteRecovery.Checked, WipeData.Checked);
-                File.Copy(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\update-binary..", AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\META-INF\\com\\google\\android\\update-binary");
+                File.Copy(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\update-binary", AppDomain.CurrentDomain.BaseDirectory + "\\tmp\\level2\\META-INF\\com\\google\\android\\update-binary");
 
                 StatusLabel.Text = "Creating pre-signed package..";
                 File.Copy(AppDomain.CurrentDomain.BaseDirectory + "\\bin\\presigned.zip", saver.FileName);
@@ -638,6 +681,44 @@ namespace CustomizationTool
                 MessageBox.Show("Packing completed", "Complete");
                 StatusLabel.Text = "Done.";
                 Compile.Enabled = true;
+                UnpackingLoader.Visible = false;
+            }
+        }
+
+        // CTP
+        private void CTPCompression_Scroll(object sender, EventArgs e)
+        {
+            if (CTPCompression.Value == 1) CTPCompressionStatus.Text = "Fastest compression, fastest but big file";
+            if (CTPCompression.Value == 2) CTPCompressionStatus.Text = "Fast compression, fast but medium file";
+            if (CTPCompression.Value == 3) CTPCompressionStatus.Text = "Optimal compression, longer but smaller file";
+        }
+
+        private void ExportCTP_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saver = new SaveFileDialog();
+            saver.Filter = "Customization Tool Project (*.ctp) | *.ctp";
+            DialogResult res = saver.ShowDialog();
+            if (res == DialogResult.OK)
+            {
+                UnpackingLoader.Visible = true;
+                ExportCTP.Enabled = false;
+                StatusLabel.Text = "Exporting Customization Tool Project..";
+
+                System.IO.Compression.CompressionLevel ctpCompression = System.IO.Compression.CompressionLevel.Optimal;
+                if (CTPCompression.Value == 1) ctpCompression = System.IO.Compression.CompressionLevel.NoCompression;
+                if (CTPCompression.Value == 2) ctpCompression = System.IO.Compression.CompressionLevel.Fastest;
+                if (CTPCompression.Value == 3) ctpCompression = System.IO.Compression.CompressionLevel.Optimal;
+
+                Thread ExportThread = new Thread(delegate ()
+                {
+                    ZipFile.CreateFromDirectory(AppDomain.CurrentDomain.BaseDirectory + "\\tmp", saver.FileName, ctpCompression, false);
+                });
+                ExportThread.Start();
+                while (ExportThread.IsAlive) Application.DoEvents();
+
+                MessageBox.Show("Exporting completed", "Complete");
+                StatusLabel.Text = "Done.";
+                ExportCTP.Enabled = true;
                 UnpackingLoader.Visible = false;
             }
         }

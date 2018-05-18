@@ -1,0 +1,121 @@
+---------------------------->> v3.1.5 <<----------------------------
+Added UpgradePackageInfo tool
+Contributions added by Akwhite(jasonnimwegen)
+
+---[AMLogic Flash Tool]---
+Fixed connection force close tool bug
+Fixed block backup typo
+Tool now operates while disconnected
+Some functions are now blocked if not connected
+Added connection status bar
+Fixed shows connected while not connected bug
+Added abillity to allow flashing custom block paths
+
+---[Customization Tool]---
+Added wallpaper changing for other AML devices with different launchers
+Fixed displaying of current file open
+
+---[UpgradePackageInfo]---
+Added abillity to show partition layout
+Checks Upgrade package size compared to hex size
+Abillity to see file sizes
+Abillity to show file type
+Abillity to show file names
+Abillity to show start hex address
+Abillity to show end hex address
+Shows file count
+Shows partition count
+
+---------------------------->> v3.1.0 <<----------------------------
+Added AMLogic flash tool
+
+---[Unpacker Class]---
+Removed support for commandline unpacking[EXE]
+Perfected unpacking of all firmware
+Completely unpacked via recognised hex algorithm
+Completely generated head via hex algorithm
+Option to list upgrade content added
+Option to get partition information added
+Option to unpack single partition added
+Corrected logo unpacking
+Extended to support unpacking of kernels/recoveries
+Option to split Upgrade Package head(Input package, Output file)
+Option to generate partition info(Input package, output txt)
+
+---[Customization Tool]---
+Updated TWRP recovery resources to 3.2.1-0
+Removed inbuilt unpacking class
+Removed inbuild kernel unpacking class
+Tool now uses Unpacker Class
+Tool now uses Kernel Unpacker class
+Fixed SHA1 checking
+Added Importing/Exporting project
+Drag and drop on icon functionallity
+Fixed bug copying update-binary
+
+---[Burn Card Maker]---
+Updated icon
+
+---[AMLogic Flash Tool]---
+Updated icon
+Based on original AMLogic flash tool
+Updated recovery resources
+Fixes with connectivity
+Added option to flash flash kernel or recovery zip(experimental)
+Added option to port from upgrade package
+Added option to port from recovery.img
+Added option to pull recovery from device
+Operations are handled on seperate thread
+Includes Unpacker Class
+Option added to backup kernel/recovery
+Option to flash after porting
+Rebased UI
+Based on .net 4.5 to allow windows 7 compatibillity
+Includes CoolADB Class library(also made by me)
+
+---------------------------->> v3.0.2 <<----------------------------
+---[Unpacker Class]---
+Faster unpacking
+SHA1sum verification added(VERIFY file, PARTITION file)
+Abillity to unpack VERIFY files(SHA1 sum)
+Near perfection of unpacking
+
+---[Customization Tool]---
+Fixed not including recovery or kernel while packing
+Fixed file context error
+Partition verification added
+
+---------------------------->> v3.0.0 <<----------------------------
+---[Unpacker Class]---
+Used source from my old AML unpacker
+Improved functionality and stability
+Unpacked by algorithm rather than assuming struction
+
+---[Customization Tool]---
+Removed obsolete functions
+Better tool management
+More information displayed
+Fixed changing bootanimation
+Fixed bootanimation orientation
+Added bootanimation dimensions + FPS are now shown
+Fixed displaying wallpaper
+Fixed ability to change wallpaper
+Fixed ability to display bootlogo
+Apps tab now literally shows all apps.
+Added kernel/recovery tab
+Shortcuts to open certain kernel files added
+Shortcuts to open certain recovery files added
+Ability to convert recovery to TWRP recovery
+Option to open Generic.kl(keymap) file
+Ability to add init.d support(system hook)
+Abillity to compile into TWRP flashable zip
+Added option to choose wipe /data
+Added options to choose what files to write
+Faster EXT4 decompression
+Faster way of splitting update package
+
+---[Burn Card Maker]---
+Formatting happens in the background(no P/Invoke)
+Formatting done on seperate thread
+Quicker extraction of aml_sdc_burn.UBOOT
+Faster file processing

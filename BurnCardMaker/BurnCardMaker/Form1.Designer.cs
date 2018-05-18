@@ -249,7 +249,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.Name = "Form1";
-            this.Text = "SD Burn Card Maker V3.0.2";
+            this.Text = "SD Burn Card Maker";
             this.ResumeLayout(false);
             this.PerformLayout();
 
