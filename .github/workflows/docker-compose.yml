@@ -1,3 +1,3 @@
-              - name: Docker Compose Action
-                uses: isbang/compose-action@v1.5.1
+- name: Docker Compose Action
+  uses: isbang/compose-action@v1.5.1
             
