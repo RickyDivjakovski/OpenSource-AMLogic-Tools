@@ -1,0 +1,12 @@
+- name: setup-msbuild
+  uses: microsoft/setup-msbuild@v1.3.1
+  with:
+    # Folder location of where vswhere.exe is located if a self-hosted agent
+    vswhere-path: # optional
+    # Version of Visual Studio to search; defaults to latest if not specified
+    vs-version: # optional
+    # Enable searching for pre-release versions of Visual Studio/MSBuild
+    vs-prerelease: # optional
+    # The preferred processor architecture of MSBuild. Can be either "x86", "x64", or "arm64". "x64" is only available from Visual Studio version 17.0 and later.
+    msbuild-architecture: # optional, default is x86
+          
