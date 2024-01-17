@@ -1,0 +1,114 @@
+            - name: Unity - Builder
+  # You may pin to the exact commit or the version.
+  # uses: game-ci/unity-builder@ff23166e3002a9f3f869621650dc992e657e17ce
+  uses: game-ci/unity-builder@v4.1.3
+  with:
+    # Platform that the build should target.
+    targetPlatform: # default is 
+    # Version of unity to use for building the project. Use "auto" to get from your ProjectSettings/ProjectVersion.txt
+    unityVersion: # optional, default is auto
+    # Specific docker image that should be used for building the project
+    customImage: # optional, default is 
+    # Relative path to the project to be built.
+    projectPath: # optional, default is 
+    # Name of the build. Should not include a file extension.
+    buildName: # optional, default is 
+    # Path where the builds should be stored.
+    buildsPath: # optional, default is 
+    # Path to a Namespace.Class.StaticMethod to run to perform the build.
+    buildMethod: # optional, default is 
+    # Suppresses `-quit`. Exit your build method using `EditorApplication.Exit(0)` instead.
+    manualExit: # optional, default is 
+    # Custom parameters to configure the build.
+    customParameters: # optional, default is 
+    # The versioning scheme to use when building the project
+    versioning: # optional, default is Semantic
+    # The version, when used with the "Custom" versioning scheme
+    version: # optional, default is 
+    # The android versionCode
+    androidVersionCode: # optional, default is 
+    # The android export type. Should be androidPackage for apk, androidAppBundle for aab, or androidStudioProject for an android studio project.
+    androidExportType: # optional, default is androidPackage
+    # The android keystoreName
+    androidKeystoreName: # optional, default is 
+    # The base64 contents of the android keystore file
+    androidKeystoreBase64: # optional, default is 
+    # The android keystorePass
+    androidKeystorePass: # optional, default is 
+    # The android keyaliasName
+    androidKeyaliasName: # optional, default is 
+    # The android keyaliasPass
+    androidKeyaliasPass: # optional, default is 
+    # The android target API level.
+    androidTargetSdkVersion: # optional, default is 
+    # The android symbol type to export. Should be "none", "public" or "debugging".
+    androidSymbolType: # optional, default is none
+    # SSH Agent path to forward to the container
+    sshAgent: # optional, default is 
+    # Path to a directory containing SSH public keys to forward to the container.
+    sshPublicKeysDirectoryPath: # optional, default is 
+    # [CloudRunner] Github private token to pull from github
+    gitPrivateToken: # optional, default is 
+    # [CloudRunner] GitHub owner name or organization/team name
+    githubOwner: # optional, default is 
+    # Whether to run as a user that matches the host system or the default root container user. Only applicable to Linux hosts and containers. This is useful for fixing permission errors on Self-Hosted runners.
+    runAsHostUser: # optional, default is false
+    # User and optionally group (user or user:group or uid:gid) to give ownership of the resulting build artifacts
+    chownFilesTo: # optional, default is 
+    # Number of CPU cores to assign the docker container. Defaults to all available cores on all platforms.
+    dockerCpuLimit: # optional, default is 
+    # Amount of memory to assign the docker container. Defaults to 95% of total system memory rounded down to the nearest megabyte on Linux and 80% on Windows. On unrecognized platforms, defaults to 75% of total system memory. To manually specify a value, use the format <number><unit>, where unit is either m or g. ie: 512m = 512 megabytes
+    dockerMemoryLimit: # optional, default is 
+    # Isolation mode to use for the docker container. Can be one of process, hyperv, or default. Default will pick the default mode as described by Microsoft where server versions use process and desktop versions use hyperv. Only applicable on Windows
+    dockerIsolationMode: # optional, default is default
+    # Container registry and repository to pull image from. Only applicable if customImage is not set.
+    containerRegistryRepository: # optional, default is unityci/editor
+    # Container registry image version. Only applicable if customImage is not set.
+    containerRegistryImageVersion: # optional, default is 3
+    # [CloudRunner] Allows the branch of the build to be dirty, and still generate the build.
+    allowDirtyBuild: # optional, default is 
+    # [CloudRunner] run a post build job in yaml format with the keys image, secrets (name, value object array), command string
+    postBuildSteps: # optional, default is 
+    # [CloudRunner] Run a pre build job after the repository setup but before the build job (in yaml format with the keys image, secrets (name, value object array), command line string)
+    preBuildSteps: # optional, default is 
+    # [CloudRunner] Specify the names (by file name) of custom steps to run before or after cloud runner jobs, must match a yaml step file inside your repo in the folder .game-ci/steps/
+    containerHookFiles: # optional, default is 
+    # [CloudRunner] Specify the names (by file name) of custom hooks to run before or after cloud runner jobs, must match a yaml step file inside your repo in the folder .game-ci/hooks/
+    customHookFiles: # optional, default is 
+    # [CloudRunner] Specify custom commands and trigger hooks (injects commands into jobs)
+    customCommandHooks: # optional, default is 
+    # [CloudRunner] Run a custom job instead of the standard build automation for cloud runner (in yaml format with the keys image, secrets (name, value object array), command line string)
+    customJob: # optional, default is 
+    # [CloudRunner] The Cloud Formation stack name that must be setup before using this option.
+    awsStackName: # optional, default is game-ci
+    # [CloudRunner] Either local, k8s or aws can be used to run builds on a remote cluster. Additional parameters must be configured.
+    providerStrategy: # optional, default is local
+    # [CloudRunner] Amount of CPU time to assign the remote build container
+    cloudRunnerCpu: # optional, default is 
+    # [CloudRunner] Amount of memory to assign the remote build container
+    cloudRunnerMemory: # optional, default is 
+    # [CloudRunner] Comma separated list of input value names to read from "input override command"
+    readInputFromOverrideList: # optional, default is 
+    # [CloudRunner] Extend game ci by specifying a command to execute to pull input from external source e.g cloud provider secret managers
+    readInputOverrideCommand: # optional, default is 
+    # [CloudRunner] Supply a base64 encoded kubernetes config to run builds on kubernetes and stream logs until completion.
+    kubeConfig: # optional, default is 
+    # [CloudRunner] Supply a Persistent Volume Claim name to use for the Unity build.
+    kubeVolume: # optional, default is 
+    # [CloudRunner] Kubernetes storage class to use for cloud runner jobs, leave empty to install rook cluster.
+    kubeStorageClass: # optional, default is 
+    # [CloudRunner] Amount of disc space to assign the Kubernetes Persistent Volume
+    kubeVolumeSize: # optional, default is 5Gi
+    # [CloudRunner] Cache key to indicate bucket for cache
+    cacheKey: # optional, default is 
+    # [CloudRunner] Whether or not to watch the build to the end. Can be used for especially long running jobs e.g imports or self-hosted ephemeral runners.
+    watchToEnd: # optional, default is true
+    # Whether to cache the Unity hub and editor installation on MacOS
+    cacheUnityInstallationOnMac: # optional, default is false
+    # The version of Unity Hub to install on MacOS (e.g. 3.4.0). Defaults to latest available on brew if empty string or nothing is specified.
+    unityHubVersionOnMac: # optional, default is 
+    # The Unity licensing server address to use for activating Unity.
+    unityLicensingServer: # optional, default is 
+    # The path to mount the workspace inside the docker container. For windows, leave out the drive letter. For example c:/github/workspace should be defined as /github/workspace
+    dockerWorkspacePath: # optional, default is /github/workspace
+          
